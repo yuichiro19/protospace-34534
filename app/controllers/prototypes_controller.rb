@@ -12,8 +12,8 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    Prototype.create(prototype_params)
-    if current_user.created_at
+    @prototype = Prototype.create(prototype_params)
+    if @prototype.created_at
       redirect_to root_path
     else
       render :new
